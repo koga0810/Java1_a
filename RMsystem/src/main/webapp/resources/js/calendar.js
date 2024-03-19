@@ -29,6 +29,13 @@ function showCalendar(month, year) {
                 break; // 月の最終日を超えたらループを抜ける
             } else {
                 let cellClass = date === today.getDate() && year === today.getFullYear() && month === today.getMonth() ? " class='today'" : "";
+                
+                if (j === 0) { // 日曜日の場合
+            cellClass = " class='sunday'";
+        } else if (j === 6) { // 土曜日の場合
+            cellClass = " class='saturday'";
+        }
+                
                 tbl += "<td" + cellClass + ">" + date + "</td>";
                 date++;
             }
