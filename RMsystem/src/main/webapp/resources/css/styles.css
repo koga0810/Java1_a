@@ -1,0 +1,240 @@
+/* カラーパレット */
+:root {
+    --primary-color: #4a90e2; /* 主要色 */
+    --secondary-color: #f4a261; /* 補助色 */
+    --background-color: #f5f5f5; /* 背景色 */
+    --text-color: #333; /* テキスト色 */
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    overflow: auto;
+}
+
+body::before {
+    content: "";
+    position: fixed; /* これをabsoluteからfixedに変更 */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../img/background.png');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: repeat;
+    opacity: 0.1; /* 背景画像の透明度を調整 */
+    z-index: -1;
+}
+
+.error-message {
+    color: red; /* 色は既に指定されているが、CSSで管理した方が良い */
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Arial', sans-serif; /* より読みやすいフォントや、Webフォントに変更可能 */
+    font-size: 36px; /* サイズを調整 */
+    font-weight: bold; /* 太字に */
+    color: var(--primary-color); /* ブランドカラーを使用 */
+    text-align: center; /* 中央揃えに */
+    margin-bottom: 20px; /* 下部のマージンを調整 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* 影を追加 */
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* カードスタイル */
+.card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--primary-color); /* カラーブロックとしてのアクセント */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* transformの追加 */
+}
+
+.card:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* 影の強調 */
+    transform: translateY(-5px); /* カードを少し持ち上げる */
+}
+
+/* カラーブロックの定義 */
+.color-block-red {
+    background-color: #F1948A;
+}
+
+.color-block-blue {
+    background-color: #AED6F1;
+}
+
+.color-block-green {
+    background-color: #A9DFBF;
+}
+
+.color-block-yellow {
+    background-color: #F9E79F;
+}
+
+input[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--secondary-color);
+}
+
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ccc;
+}
+
+.card-action {
+    display: inline-block;
+}
+
+.card-message {
+    margin-left: 20px;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-inline {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* 最後のフォーム要素の余分なマージンを取り除くためのクラス */
+.form-inline:last-child {
+    margin-right: 0;
+}
+
+.button-inline {
+    cursor: pointer;
+}
+
+.table-container {
+    text-align: center;
+    margin-top: 20px;
+    display: block; /* flexではなくblockを使用する */
+}
+
+table {
+    border-collapse: collapse;
+    /* 任意で、Tableの幅や他のスタイリングを追加 */
+}
+
+.table-container table {
+    width: 80%; /* テーブルの幅を調整 */
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse; /* セル間のボーダーを一つに */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* テーブルに影を追加 */
+}
+
+.table-container th,
+.table-container td {
+    border: 1px solid #ddd; /* セルのボーダー */
+    text-align: left; /* テキストの位置 */
+    padding: 8px; /* パディング */
+}
+
+.table-container th {
+    background-color: #f8f9fa; /* 見出しの背景色 */
+    color: #333; /* 見出しのテキスト色 */
+}
+
+.table-container tr:nth-child(even) {
+    background-color: #f2f2f2; /* 偶数行の背景色 */
+}
+
+.table-container tr:hover {
+    background-color: #ddd; /* ホバー時の行の背景色 */
+}
+
+.rounded-blur-image {
+    border-radius: 300px; /* 画像の角を丸くする */
+    max-width: 80%; /* 画像の最大幅を指定 */
+    height: auto; /* 高さを自動調整 */
+}
+
+.layout {
+    display: flex;
+    height: 100vh; /* ビューポートの高さに合わせる */
+}
+
+.left-column {
+    flex: 1; /* 左側エリアの幅を自動調整 */
+    display: flex;
+    flex-direction: column; /* 縦方向に並べる */
+}
+
+.image-display,
+.calendar {
+    margin: 20px;
+    padding: 20px;
+}
+
+.message-area {
+    flex: 2; /* メッセージエリアをより広く取る */
+    margin: 20px;
+    padding: 20px;
+    height: auto; /* 高さを内容に合わせる */
+    overflow-y: auto; /* 必要に応じてスクロール */
+}
+
+.calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar-table th, .calendar-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.calendar-table th {
+    background-color: #f2f2f2;
+}
+
+.today {
+    background-color: #ff0;
+}
+
+#monthAndYear {
+    text-align: center;
+    margin-bottom: 20px;
+}
