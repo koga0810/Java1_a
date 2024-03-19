@@ -8,28 +8,29 @@
 </head>
 <body>
 
-<h1>クラスページ</h1>
+<h1>クラスページ（作成中）</h1>
 
 <div class="layout">
     <!-- 左側エリア -->
     <div class="left-column">
         <!-- 画像エリア -->
         <div class="image-display">
-            <h2>クラスの画像</h2>
+            <h2>クラスの画像イメージ</h2>
             <img src="${pageContext.request.contextPath}/resources/img/example.jpg" alt="クラス画像" class="rounded-blur-image">
         </div>
         
         <!-- カレンダーエリア -->
-        <div id="monthAndYear"></div>
-    <div id="calendar"></div>
-        <div class="calendar">
+<div class="calendar">
+    <!-- カレンダーヘッダー -->
     <div class="calendar-header">
         <button onclick="changeMonth(-1)">&#10094;</button>
-        <span class="month-year"></span>
+        <span id="monthAndYear" class="month-year"></span>
         <button onclick="changeMonth(1)">&#10095;</button>
     </div>
+    <!-- カレンダー本体を表示する部分 -->
     <div id="calendar"></div>
 </div>
+
 
     <!-- 右側メッセージエリア -->
     <div class="message-area">

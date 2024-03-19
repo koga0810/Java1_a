@@ -186,19 +186,18 @@ table {
 
 .rounded-blur-image {
     border-radius: 300px; /* 画像の角を丸くする */
-    max-width: 80%; /* 画像の最大幅を指定 */
+    max-width: 30%; /* 画像の最大幅を指定 */
     height: auto; /* 高さを自動調整 */
 }
 
 .layout {
     display: flex;
-    height: 100vh; /* ビューポートの高さに合わせる */
+    flex-wrap: wrap; /* 必要に応じて要素を折り返す */
 }
 
-.left-column {
-    flex: 1; /* 左側エリアの幅を自動調整 */
-    display: flex;
-    flex-direction: column; /* 縦方向に並べる */
+.left-column,
+.right-column {
+    flex-basis: 50%; /* 基本の幅を50%に設定 */
 }
 
 .image-display,
@@ -215,9 +214,15 @@ table {
     overflow-y: auto; /* 必要に応じてスクロール */
 }
 
+.calendar {
+    padding: 10px;
+    margin: 10px;
+}
+
 .calendar-table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%; /* 必要に応じて最大幅を設定 */
+    max-width: 600px; /* カレンダーの最大幅を制限 */
+    margin: auto; /* 中央揃え */
 }
 
 .calendar-table th, .calendar-table td {
@@ -234,7 +239,29 @@ table {
     background-color: #ff0;
 }
 
-#monthAndYear {
+.calendar-header {
+    background-color: rgb(215, 251, 248); /* 背景色 */
+    color: #333; /* テキスト色 */
+    padding: 10px;
     text-align: center;
-    margin-bottom: 20px;
+    border-radius: 5px; /* 角の丸み */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 影を追加 */
+    margin-bottom: 10px; /* 下のカレンダー本体との間隔 */
+}
+
+.calendar-header button {
+    background-color: rgb(0, 128, 255); /* ボタンの背景色 */
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px; /* ボタンの角の丸み */
+    cursor: pointer; /* ホバー時のカーソル変更 */
+    transition: background-color 0.3s; /* 背景色の変化を滑らかに */
+}
+
+.calendar-header button:hover {
+    background-color: rgb(255, 255, 0); /* ホバー時の背景色 */
+}
+
+.month-year {
+    font-weight: bold; /* 月と年のテキストを太字に */
 }
