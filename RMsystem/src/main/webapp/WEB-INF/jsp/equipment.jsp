@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 
@@ -26,48 +27,23 @@
                 <th scope="col">最終更新日</th>
             </tr>
         </thead>
-        <tbody>
-    			<tr>
-      			<th>&nbsp;</th>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-    			</tr>
-    
-    			<tr>
-      			<th>&nbsp;</th>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-    			</tr>
-    
-    			<tr>
-      			<th>&nbsp;</th>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-    			</tr>
-    
-    			<tr>
-      			<th>&nbsp;</th>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-    			</tr>
-  			</tbody>
+    		
+  		</tbody>
+  			
+  			<c:forEach var="equipment" items="${equipments}">
+        	
+        	<tr>
+            <td>${equipment.id}</td>
+            <td>${equipment.itemName}</td>
+            <td>${equipment.quantity}</td>
+            <td>${equipment.updaterId}</td>
+            <td>${equipment.lastUpdated}</td>
+        	</tr>
+        	
+    		</c:forEach>
   
   			<tfoot>
-    			<tr>
-      			<th>&nbsp;</th>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			
+    			
     			</tr>
   			</tfoot>
 		</table>

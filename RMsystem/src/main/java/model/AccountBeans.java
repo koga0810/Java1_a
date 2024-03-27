@@ -61,7 +61,7 @@ public class AccountBeans implements Serializable{
 	}
 	
 	public Integer getAge() {
-		return age;
+		return age != null ? age.intValue() : 0; // デフォルト値は0とする
 	}
 	public void setAge(Integer age) {
 		this.age = age;
@@ -98,7 +98,7 @@ public class AccountBeans implements Serializable{
 	}
 	
 	public Integer getAbsentDay() {
-	    return absentDay;
+	    return absentDay != null ? absentDay.intValue() : 0;
 	}
 	
 	public void setAbsentDay(Integer absentDay) {
@@ -116,6 +116,7 @@ public class AccountBeans implements Serializable{
 		// TODO 自動生成されたメソッド・スタブ
 		
 	}
+	}
 
 
-}
+

@@ -40,7 +40,7 @@ public class AccountDao {
                     account.setClassId(rs.getString("class_id"));
                     account.setAdmissionDate(rs.getDate("admission_date"));
                     account.setGraduationDate(rs.getDate("graduation_date"));
-                    account.setAbsentDay(rs.getInt("absent_day"));
+                    account.setAbsentDay(rs.getInt("absent_days"));
                     account.setLastUpdated(rs.getTimestamp("last_updated"));
                 }
             }
@@ -53,7 +53,7 @@ public class AccountDao {
     
     //新規登録SQＬ文（ＩＮＳＥＲＴ）
     public void registerAccount(AccountBeans account) {
-        String sql = "INSERT INTO account (id, division, name, kana, password, address, age, class_id, admission_date, graduation_date, absent_day) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO account (id, division, name, kana, password, address, age, class_id, admission_date, graduation_date, absent_days) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -74,5 +74,11 @@ public class AccountDao {
             e.printStackTrace();
         }
     }
+
+
+	public void closeConnection() {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
 }
     
