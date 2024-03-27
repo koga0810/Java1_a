@@ -18,23 +18,19 @@ public class UserokServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	
-    	
-    	
-    	
-    	String id = request.getParameter("id");
+    	String id = request.getParameter("username");
         String password = request.getParameter("password");
          
-      // ユーザー情報をAccountBeansオブジェクトにセット
+         // ユーザー情報をAccountBeansオブジェクトにセット
          AccountBeans account = new AccountBeans();
          account.setId(id);
          account.setPass(password);
          
-      // AccountDaoクラスのregisterAccountメソッドを呼び出してユーザー情報を登録
+         // AccountDaoクラスのregisterAccountメソッドを呼び出してユーザー情報を登録
          AccountDao dao = new AccountDao();
          dao.registerAccount(account);
          
-        
-        // ここで必要な処理を行います（例：データベースから備品の情報を取得）
+       
         
         // userok.jspにフォワード
         RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/jsp/userok.jsp");

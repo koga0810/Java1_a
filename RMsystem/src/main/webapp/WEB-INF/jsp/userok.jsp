@@ -14,16 +14,32 @@
 
 
 	<body>
+	
+		
+    <%-- リクエストパラメータからusernameとpasswordを取得する --%>
+    <% String id = request.getParameter("id"); %>
+    <% String password = request.getParameter("password"); %>
+    	
+	
 	<div class="button-container">
 		<h1>登録が完了しました！</h1>
     	<p>登録された情報:</p>
     	<p>ID: <%= session.getAttribute("username") %></p>
     	<p>パスワード: ＊＊＊＊＊＊＊＊</p>
     	
-		<form action="SecretariatServlet" method="post">
-		<input type="submit" value=戻る>
+    	
+    	<form action="SecretariatServlet" method="post">
+			<input type="submit" value=戻る>
 		</form>
-	</div>
+    	
+    </div>
+    
+    	
+		
+	
+	
+	
+	
 		
 	</body>
 </html>

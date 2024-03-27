@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/IndexServlet")
 public class IndexServlet extends HttpServlet {
-	//private static final long serialVeraionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 protected void doGet(HttpServletRequest request,
 		HttpServletResponse response)

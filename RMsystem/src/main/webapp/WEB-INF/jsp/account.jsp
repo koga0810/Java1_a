@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
 <!DOCTYPE html>
 
@@ -36,20 +38,26 @@
   			</thead>
   			
   			<tbody>
+  			
+  			 <c:forEach var="user" items="${users}">
     			<tr>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
-      			<td>&nbsp;</td>
+    				<td>${user.id}</td>
+      				<td>${user.division}</td>
+      				<td>${user.name}</td>
+      				<td>${user.kana}</td>
+      				<td>${user.pass}</td>
+      				<td>${user.address}</td>
+      				<td>${user.age}</td>
+      				<td>${user.classId}</td>
+      				<td>${user.admissionDate}</td>
+      				<td>${user.graduationDate}</td>
+      				<td>${user.absentDay}</td>
+      				<td>${user.lastUpdated}</td>
+      				
+      			
     			</tr>
+    			
+    		</c:forEach>
     
     			
   			</tbody>

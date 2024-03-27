@@ -15,7 +15,7 @@
 
 <div class="button-container">
 <form action="LoginServlet" method="post">
-    <input type="text" name="name" placeholder="ユーザーID"><br>
+    <input type="text" name="id" placeholder="ユーザーID"><br>
     <br>
     <input type="password" name="pass" placeholder="パスワード"><br>
     <br>
