@@ -28,19 +28,17 @@
             </tr>
         </thead>
     		
-  		</tbody>
-  			
-  			<c:forEach var="equipment" items="${equipments}">
-        	
-        	<tr>
-            <td>${equipment.id}</td>
-            <td>${equipment.itemName}</td>
-            <td>${equipment.quantity}</td>
-            <td>${equipment.updaterId}</td>
-            <td>${equipment.lastUpdated}</td>
-        	</tr>
-        	
-    		</c:forEach>
+        <%-- 備品データの動的表示処理 --%>
+        <c:forEach var="equipment" items="${equipments}">
+            <tr>
+                <td><c:out value="${equipment.id}"/></td>
+                <td><c:out value="${equipment.itemName}"/></td>
+                <td><c:out value="${equipment.quantity}"/></td>
+                <td><c:out value="${equipment.updaterId}"/></td>
+                <td><c:out value="${equipment.lastUpdated}"/></td>
+                <td><button onclick="editRow(this)">編集</button></td>
+            </tr>
+        </c:forEach>
   
   			<tfoot>
     			
@@ -63,6 +61,60 @@
         <input type="submit" value="更新" class="button-inline">
     </form>
 </div>
+
+<script type="text/javascript">
+function editRow(button) {
+    var row = button.parentNode.parentNode;
+    var cells = row.getElementsByTagName('td');
+
+    // 各セルについて編集可能なフィールドに変更
+    for (var i = 0; i < cells.length - 2; i++) { // 最後の2セル（編集ボタンがあるセルと状態表示用のセル）を除く
+        var value = cells[i].innerText;
+        cells[i].innerHTML = '<input type="text" value="' + value + '">';
+    }
+
+    // 編集ボタンを「保存」ボタンに切り替え
+    button.innerText = '保存';
+    button.setAttribute('onclick', 'saveRow(this)');
+}
+
+function saveRow(button) {
+    var row = button.parentNode.parentNode;
+    var inputs = row.getElementsByTagName('input');
+    
+    // TODO: ここでinputsの値を取得してサーバーに送信する処理を実装
+
+    // ページの再読み込みなどで変更を反映
+    location.reload();
+
+    function saveRow(button) {
+        var row = button.parentNode.parentNode;
+        var cells = row.getElementsByTagName("input"); // 編集用テキストボックスを取得
+        var data = {
+            id: row.getAttribute("data-id"), // 行にdata-id属性としてIDを設定しておく
+            itemName: cells[0].value,
+            quantity: cells[1].value
+        };
+
+        fetch('EquipmentUpdateServlet', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            // 成功した場合の処理（ページの再読み込みなど）
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+
+    
+}</script>
 
 
 	</body>
